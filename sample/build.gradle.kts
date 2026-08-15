@@ -5,25 +5,23 @@ plugins {
 
 android {
     namespace = "com.davemorrissey.labs.subscaleview.test"
-    compileSdk = 34
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "com.davemorrissey.labs.subscaleview.test"
-        minSdk = 21
-        targetSdk = 34
+        minSdk = 24
+        targetSdk = 37
 
         versionCode = 4
         versionName = "3.1.0"
+    }
 
-        defaultConfig {
-            packagingOptions {
-                jniLibs.keepDebugSymbols.addAll(listOf("*/mips/*.so", "*/mips64/*.so"))
-            }
-        }
+    buildFeatures {
+        viewBinding = true
+    }
 
-        compileOptions {
-            viewBinding.isEnabled = true
-        }
+    packaging {
+        jniLibs.keepDebugSymbols.addAll(listOf("*/mips/*.so", "*/mips64/*.so"))
     }
 
     sourceSets {
@@ -34,12 +32,11 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
+}
 
-    kotlinOptions {
-        compileOptions {
-            sourceCompatibility = JavaVersion.VERSION_17
-            targetCompatibility = JavaVersion.VERSION_17
-        }
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+    compilerOptions {
+        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
     }
 }
 

@@ -1617,8 +1617,7 @@ public class SubsamplingScaleImageView extends View {
         ImageRotation rotation = getImageRotation();
 
         switch (rotation) {
-            case ROTATION_0 ->
-                    target.set(sRect);
+            case ROTATION_0 -> target.set(sRect);
             case ROTATION_90 ->
                     target.set(sRect.top, sHeight - sRect.right, sRect.bottom, sHeight - sRect.left);
             case ROTATION_180 ->
@@ -2771,7 +2770,7 @@ public class SubsamplingScaleImageView extends View {
                 InputProvider provider = providerRef.get();
                 if (context != null && view != null && provider == view.provider) {
                     view.debug("TilesInitTask.doInBackground");
-                    decoder = new Decoder(view.cropBorders, view.hardwareConfig, view.displayProfile.toByteArray());
+                    decoder = new Decoder(view.cropBorders);
                     Point dimensions = decoder.init(context, provider);
                     int sWidth = dimensions.x;
                     int sHeight = dimensions.y;
