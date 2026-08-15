@@ -4,7 +4,7 @@ import java.io.IOException
 import java.io.InputStream
 
 fun interface InputProvider {
-    
+
     @Throws(IOException::class)
     fun openStream(): InputStream?
 }

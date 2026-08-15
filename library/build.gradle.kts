@@ -1,17 +1,30 @@
 plugins {
-    id("com.android.library")
-    kotlin("android")
+    alias(libs.plugins.android.library)
     `maven-publish`
 }
 
 android {
     namespace = "com.davemorrissey.labs.subscaleview"
-    compileSdk = 34
+    compileSdk = 37
 
     defaultConfig {
-        minSdk = 21
+        minSdk = 24
 
         consumerProguardFiles("proguard-rules.txt")
+
+        externalNativeBuild {
+            cmake {
+                cppFlags("-O3 -flto")
+                targets("ep_ssiv_crop")
+            }
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            path = file("src/main/cpp/CMakeLists.txt")
+            version = "3.22.1"
+        }
     }
 
     compileOptions {
@@ -19,17 +32,22 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
-    kotlinOptions {
-        compileOptions {
-            sourceCompatibility = JavaVersion.VERSION_17
-            targetCompatibility = JavaVersion.VERSION_17
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
         }
+    }
+}
+
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+    compilerOptions {
+        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
     }
 }
 
 dependencies {
     implementation(libs.androidx.annotation)
-    api(libs.image.decoder)
+    implementation(libs.image.decoder)
 }
 
 afterEvaluate {

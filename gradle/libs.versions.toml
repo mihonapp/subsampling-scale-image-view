@@ -1,10 +1,10 @@
 [plugins]
-android-library = { id = "com.android.library", version = "8.3.0" }
-kotlin-android = { id = "org.jetbrains.kotlin.android", version = "1.9.23" }
+android-library = { id = "com.android.library", version = "9.3.1" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version = "2.4.10" }
 
 [libraries]
-androidx-annotation = { module = "androidx.annotation:annotation", version = "1.7.1" }
-androidx-appcompat = { module = "androidx.appcompat:appcompat", version = "1.7.0-alpha03" }
-androidx-viewpager = { module = "androidx.viewpager:viewpager", version = "1.1.0-alpha01" }
+androidx-annotation = { module = "androidx.annotation:annotation", version = "1.10.0" }
+androidx-appcompat = { module = "androidx.appcompat:appcompat", version = "1.8.0" }
+androidx-viewpager = { module = "androidx.viewpager:viewpager", version = "1.1.0" }
 
-image-decoder = { module = "com.github.tachiyomiorg:image-decoder", version = "e08e9be535" }
+image-decoder = { module = "ca.mpreg:imagedecoder", version = "9" }

@@ -16,3 +16,5 @@ captures/
 
 # Misc
 .DS_Store
+
+.cxx
