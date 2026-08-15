@@ -1,6 +1,5 @@
 plugins {
-    id("com.android.application")
-    kotlin("android")
+    alias(libs.plugins.android.library)
 }
 
 android {
@@ -8,12 +7,7 @@ android {
     compileSdk = 37
 
     defaultConfig {
-        applicationId = "com.davemorrissey.labs.subscaleview.test"
         minSdk = 24
-        targetSdk = 37
-
-        versionCode = 4
-        versionName = "3.1.0"
     }
 
     buildFeatures {
