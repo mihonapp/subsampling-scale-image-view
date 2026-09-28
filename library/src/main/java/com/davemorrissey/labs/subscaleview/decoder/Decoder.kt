@@ -40,10 +40,10 @@ class Decoder(
     override fun init(context: Context, provider: InputProvider): Point {
         val decoder = provider.openStream().use { inputStream ->
             checkNotNull(inputStream) { "InputProvider returned null stream" }
-            ImageDecoder.new(inputStream)
+            ImageDecoder.open(inputStream)
         }
 
-        val result = decoder.decode(page = 0)
+        val result = decoder.decodeNext()
         imageWidth = result.width
         imageHeight = result.height
 

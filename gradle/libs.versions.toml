@@ -7,4 +7,4 @@ androidx-annotation = { module = "androidx.annotation:annotation", version = "1.
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version = "1.8.0" }
 androidx-viewpager = { module = "androidx.viewpager:viewpager", version = "1.1.0" }
 
-image-decoder = { module = "ca.mpreg:imagedecoder", version = "9" }
+image-decoder = { module = "ca.mpreg:imagedecoder", version = "15" }
