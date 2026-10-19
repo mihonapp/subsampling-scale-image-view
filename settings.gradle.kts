@@ -21,7 +21,12 @@ plugins {
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
-        mavenCentral()
+        // JitPack redirects mavenCentral() to a Google mirror that lags behind
+        if (System.getenv("JITPACK") == "true") {
+            maven(url = "https://repo1.maven.org/maven2/")
+        } else {
+            mavenCentral()
+        }
         google()
         maven(url = "https://www.jitpack.io")
     }
