@@ -1,19 +1,10 @@
 pluginManagement {
-    resolutionStrategy {
-        eachPlugin {
-            val regex = "com.android.(library|application)".toRegex()
-            if (regex matches requested.id.id) {
-                useModule("com.android.tools.build:gradle:${requested.version}")
-            }
-        }
-    }
     repositories {
         gradlePluginPortal()
         google()
-        mavenCentral()
-        maven(url = "https://www.jitpack.io")
     }
 }
+
 plugins {
     id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
 }
@@ -28,10 +19,7 @@ dependencyResolutionManagement {
             mavenCentral()
         }
         google()
-        maven(url = "https://www.jitpack.io")
     }
 }
 
-listOf("library", "sample").forEach {
-    include(":$it")
-}
+include(":library", ":sample")
