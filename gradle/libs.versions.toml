@@ -1,9 +1,9 @@
 [plugins]
-android-library = { id = "com.android.library", version = "9.3.1" }
-kotlin-android = { id = "org.jetbrains.kotlin.android", version = "2.4.10" }
+android-library = { id = "com.android.library", version = "9.4.1" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version = "2.4.21" }
 
 [libraries]
-androidx-annotation = { module = "androidx.annotation:annotation", version = "1.10.0" }
+androidx-annotation = { module = "androidx.annotation:annotation", version = "1.11.0" }
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version = "1.8.0" }
 androidx-viewpager = { module = "androidx.viewpager:viewpager", version = "1.1.0" }
 
